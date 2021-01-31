@@ -1,0 +1,69 @@
+#include<stdio.h>
+int main()
+{
+    int arr[100],n,i,min,k=0,flag=0;
+    printf("enter no. of elements in array:");
+    scanf("%d",&n);
+    printf("enter %d nos.:",n);
+    for(i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    min=arr[0];
+    printf("{");
+    for(i=0;i<n;i++)
+    {
+      if(min<=arr[i])
+      {
+          while(k<n)
+          {
+              if(arr[k]>arr[i])
+              {
+                  min=arr[k];
+                  flag=1;
+                  break;
+              }
+              k++;
+          }
+          k=0;
+      }
+      while(k<n)
+      {
+          if(arr[k]>arr[i])
+          {
+              if(min>arr[k])
+              {
+                  min=arr[k];
+                  flag=2;
+              }
+          }
+          k++;
+      }
+      k=0;
+      if(min==arr[i])
+      {
+            if(i==(n-1))
+              printf("%d",min);
+            else
+              printf("%d,",min);
+      }
+      else
+      {
+          if(flag==1||flag==2)
+          {
+          if(i==(n-1))
+              printf("%d<%d",arr[i],min);
+          else
+              printf("%d<%d,",arr[i],min);
+          }
+          else
+          {
+             if(i==(n-1))
+              printf("%d",arr[i]);
+          else
+              printf("%d,",arr[i]); 
+          }
+      }
+      flag=0;
+    }
+    printf("}");
+    return 0;
+}
