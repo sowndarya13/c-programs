@@ -33,7 +33,7 @@ int main()
                printf("%d ",arr[i][c1]);
             c1++;
         }
-        
+
     }
     return 0;
 }
